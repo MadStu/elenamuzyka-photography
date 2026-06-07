@@ -2,15 +2,6 @@
 import "../styles/global.css";
 
 const instagramUrl = "https://www.instagram.com/elenamuzyka.photography";
-
-const categories = [
-  ["Portrait / Individual", "Portrét / Individuálne fotenie"],
-  ["Love Story", "Love Story"],
-  ["Family", "Rodinné fotenie"],
-  ["Wedding", "Svadobné fotenie"],
-  ["Commercial / Brand", "Komerčné / Brand fotenie"],
-  ["Fine Art", "Fine Art"],
-];
 ---
 
 <!doctype html>
@@ -69,9 +60,9 @@ const categories = [
             <h1 id="site-title">Elena Muzyka Photography</h1>
             <p class="intro">
               <span data-i18n="intro">
-                Portrait, family, brand, and fine art photography from Poprad.
-                The full portfolio is coming soon; for now, follow Elena's latest
-                work on Instagram.
+                A new photography portfolio from Poprad, Slovakia. The full
+                gallery is coming soon; for now, follow Elena's latest work on
+                Instagram.
               </span>
             </p>
             <div class="actions">
@@ -111,54 +102,22 @@ const categories = [
           </div>
         </div>
       </section>
-
-      <section class="services" aria-labelledby="services-title">
-        <div>
-          <p class="eyebrow">
-            <span data-i18n="servicesEyebrow">Areas of focus</span>
-          </p>
-          <h2 id="services-title">
-            <span data-i18n="servicesTitle">Photography categories</span>
-          </h2>
-        </div>
-        <ul>
-          {
-            categories.map(([en, sk]) => (
-              <li>
-                <span data-en={en} data-sk={sk}>{en}</span>
-              </li>
-            ))
-          }
-        </ul>
-        <p class="note">
-          <span data-i18n="note">
-            Love Story and Wedding galleries will be added as new work becomes
-            available.
-          </span>
-        </p>
-      </section>
     </main>
     <script>
       const copy = {
         en: {
           eyebrow: "Photography in Poprad, Slovakia",
           intro:
-            "Portrait, family, brand, and fine art photography from Poprad. The full portfolio is coming soon; for now, follow Elena's latest work on Instagram.",
+            "A new photography portfolio from Poprad, Slovakia. The full gallery is coming soon; for now, follow Elena's latest work on Instagram.",
           instagramButton: "View Instagram",
           photoCaption: "New work and behind-the-scenes previews are shared on Instagram.",
-          servicesEyebrow: "Areas of focus",
-          servicesTitle: "Photography categories",
-          note: "Love Story and Wedding galleries will be added as new work becomes available.",
         },
         sk: {
           eyebrow: "Fotografka v Poprade, Slovensko",
           intro:
-            "Portrétne, rodinné, brandové a fine art fotenie z Popradu. Kompletné portfólio pripravujeme; zatiaľ sledujte Eleninu najnovšiu tvorbu na Instagrame.",
+            "Nové fotografické portfólio z Popradu. Kompletnú galériu pripravujeme; zatiaľ sledujte Eleninu najnovšiu tvorbu na Instagrame.",
           instagramButton: "Zobraziť Instagram",
           photoCaption: "Novú tvorbu a zákulisné momenty nájdete na Instagrame.",
-          servicesEyebrow: "Zameranie",
-          servicesTitle: "Kategórie fotenia",
-          note: "Galérie Love Story a svadobného fotenia pribudnú, keď bude dostupná nová tvorba.",
         },
       };
 
@@ -167,9 +126,6 @@ const categories = [
         document.querySelectorAll("[data-i18n]").forEach((element) => {
           const key = element.getAttribute("data-i18n");
           element.textContent = copy[language][key];
-        });
-        document.querySelectorAll("[data-en][data-sk]").forEach((element) => {
-          element.textContent = element.getAttribute(`data-${language}`);
         });
         document.querySelectorAll("[data-language-button]").forEach((button) => {
           button.classList.toggle(
