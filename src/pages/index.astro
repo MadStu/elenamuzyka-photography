@@ -2,6 +2,114 @@
 import "../styles/global.css";
 
 const instagramUrl = "https://www.instagram.com/elenamuzyka.photography";
+
+const placeholderImages = [
+  {
+    src: "/images/placeholders/gallery-01-portrait.jpg",
+    alt: "Temporary portrait-format placeholder photograph",
+    className: "portrait",
+    width: 1200,
+    height: 1600,
+  },
+  {
+    src: "/images/placeholders/gallery-02-landscape.jpg",
+    alt: "Temporary landscape-format placeholder photograph",
+    className: "wide",
+    width: 1600,
+    height: 1067,
+  },
+  {
+    src: "/images/placeholders/gallery-03-square.jpg",
+    alt: "Temporary square-format placeholder photograph",
+    className: "square",
+    width: 1400,
+    height: 1400,
+  },
+  {
+    src: "/images/placeholders/gallery-04-portrait.jpg",
+    alt: "Temporary portrait-format placeholder photograph",
+    className: "portrait",
+    width: 1000,
+    height: 1500,
+  },
+  {
+    src: "/images/placeholders/gallery-05-landscape.jpg",
+    alt: "Temporary landscape-format placeholder photograph",
+    className: "wide",
+    width: 1800,
+    height: 1200,
+  },
+  {
+    src: "/images/placeholders/gallery-06-portrait.jpg",
+    alt: "Temporary portrait-format placeholder photograph",
+    className: "tall",
+    width: 1350,
+    height: 1800,
+  },
+  {
+    src: "/images/placeholders/gallery-07-landscape.jpg",
+    alt: "Temporary landscape-format placeholder photograph",
+    className: "landscape",
+    width: 1200,
+    height: 800,
+  },
+  {
+    src: "/images/placeholders/gallery-08-square.jpg",
+    alt: "Temporary square-format placeholder photograph",
+    className: "square",
+    width: 1600,
+    height: 1600,
+  },
+  {
+    src: "/images/placeholders/gallery-09-portrait.jpg",
+    alt: "Temporary portrait-format placeholder photograph",
+    className: "portrait",
+    width: 1100,
+    height: 1500,
+  },
+  {
+    src: "/images/placeholders/gallery-10-landscape.jpg",
+    alt: "Temporary landscape-format placeholder photograph",
+    className: "wide",
+    width: 1920,
+    height: 1280,
+  },
+  {
+    src: "/images/placeholders/gallery-11-portrait.jpg",
+    alt: "Temporary portrait-format placeholder photograph",
+    className: "tall",
+    width: 1200,
+    height: 1600,
+  },
+  {
+    src: "/images/placeholders/gallery-12-landscape.jpg",
+    alt: "Temporary landscape-format placeholder photograph",
+    className: "landscape",
+    width: 1500,
+    height: 1000,
+  },
+  {
+    src: "/images/placeholders/gallery-13-portrait.jpg",
+    alt: "Temporary portrait-format placeholder photograph",
+    className: "portrait",
+    width: 1000,
+    height: 1250,
+  },
+  {
+    src: "/images/placeholders/gallery-14-landscape.jpg",
+    alt: "Temporary landscape-format placeholder photograph",
+    className: "wide",
+    width: 1800,
+    height: 1100,
+  },
+  {
+    src: "/images/placeholders/gallery-15-square.jpg",
+    alt: "Temporary square-format placeholder photograph",
+    className: "square",
+    width: 1300,
+    height: 1300,
+  },
+];
 ---
 
 <!doctype html>
@@ -91,7 +199,7 @@ const instagramUrl = "https://www.instagram.com/elenamuzyka.photography";
           <div class="image-panel">
             <img
               src="/images/featured-photo.jpg"
-              alt="Selected work by Elena Muzyka Photography"
+              alt="Featured image for Elena Muzyka Photography"
               width="1080"
               height="1080"
             />
@@ -103,7 +211,41 @@ const instagramUrl = "https://www.instagram.com/elenamuzyka.photography";
           </div>
         </div>
       </section>
+
+      <section class="portfolio-preview" aria-label="Portfolio preview">
+        <p class="placeholder-note">
+          <span data-i18n="portfolioNote">
+            Тимчасові зображення для перегляду структури сторінки.
+          </span>
+        </p>
+        <div class="portfolio-grid">
+          {
+            placeholderImages.map((image) => (
+              <figure class={image.className}>
+                <button
+                  type="button"
+                  class="portfolio-trigger"
+                  data-lightbox-src={image.src}
+                  data-lightbox-alt={image.alt}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    width={image.width}
+                    height={image.height}
+                  />
+                </button>
+              </figure>
+            ))
+          }
+        </div>
+      </section>
     </main>
+
+    <dialog class="lightbox" aria-label="Portfolio image preview">
+      <img src="" alt="" />
+    </dialog>
+
     <script>
       const copy = {
         uk: {
@@ -112,6 +254,7 @@ const instagramUrl = "https://www.instagram.com/elenamuzyka.photography";
             "Нове фотографічне портфоліо від Elena Muzyka. Повна галерея вже незабаром; поки що стежте за новими роботами Elena в Instagram.",
           instagramButton: "Переглянути Instagram",
           photoCaption: "Нові роботи та закулісні моменти з'являються в Instagram.",
+          portfolioNote: "Тимчасові зображення для перегляду структури сторінки.",
         },
         en: {
           eyebrow: "Photography in Poprad, Slovakia",
@@ -119,6 +262,7 @@ const instagramUrl = "https://www.instagram.com/elenamuzyka.photography";
             "A new photography portfolio from Elena Muzyka. The full gallery is coming soon; for now, follow Elena's latest work on Instagram.",
           instagramButton: "View Instagram",
           photoCaption: "New work and behind-the-scenes previews are shared on Instagram.",
+          portfolioNote: "Temporary images to preview the page structure.",
         },
         sk: {
           eyebrow: "Fotografka v Poprade, Slovensko",
@@ -126,6 +270,7 @@ const instagramUrl = "https://www.instagram.com/elenamuzyka.photography";
             "Nové fotografické portfólio od Elena Muzyka. Kompletnú galériu pripravujeme; zatiaľ sledujte najnovšiu tvorbu Elena na Instagrame.",
           instagramButton: "Zobraziť Instagram",
           photoCaption: "Novú tvorbu a zákulisné momenty nájdete na Instagrame.",
+          portfolioNote: "Dočasné obrázky na náhľad štruktúry stránky.",
         },
       };
 
@@ -147,6 +292,31 @@ const instagramUrl = "https://www.instagram.com/elenamuzyka.photography";
         button.addEventListener("click", () => {
           setLanguage(button.getAttribute("data-language-button"));
         });
+      });
+
+      const lightbox = document.querySelector(".lightbox");
+      const lightboxImage = lightbox.querySelector("img");
+      const closeLightbox = () => {
+        lightbox.close();
+        lightboxImage.removeAttribute("src");
+        lightboxImage.alt = "";
+      };
+
+      document.querySelectorAll("[data-lightbox-src]").forEach((button) => {
+        button.addEventListener("click", () => {
+          lightboxImage.src = button.getAttribute("data-lightbox-src");
+          lightboxImage.alt = button.getAttribute("data-lightbox-alt");
+          lightbox.showModal();
+        });
+      });
+
+      lightboxImage.addEventListener("click", closeLightbox);
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+      lightbox.addEventListener("cancel", () => {
+        lightboxImage.removeAttribute("src");
+        lightboxImage.alt = "";
       });
     </script>
   </body>
