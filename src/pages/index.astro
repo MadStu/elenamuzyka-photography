@@ -1,115 +1,134 @@
 ---
+import { Image } from "astro:assets";
 import "../styles/global.css";
 
 const instagramUrl = "https://www.instagram.com/elenamuzyka.photography";
 
-const placeholderImages = [
+const portfolioSections = [
   {
-    src: "/images/placeholders/gallery-01-portrait.jpg",
-    alt: "Temporary portrait-format placeholder photograph",
-    className: "portrait",
-    width: 1200,
-    height: 1600,
+    titleKey: "portraitTitle",
+    images: [
+      {
+        src: "/images/portfolio/portraits/portrait-01.jpg",
+        alt: "Close-up portrait of a woman resting her chin on her hand",
+        className: "tall",
+        width: 2178,
+        height: 3267,
+      },
+    ],
   },
   {
-    src: "/images/placeholders/gallery-02-landscape.jpg",
-    alt: "Temporary landscape-format placeholder photograph",
-    className: "wide",
-    width: 1600,
-    height: 1067,
+    titleKey: "fineArtTitle",
+    images: [
+      {
+        src: "/images/portfolio/fine-art/fine-art-01.jpg",
+        alt: "Layered fine art portrait with city textures and red hair",
+        className: "wide",
+        width: 2048,
+        height: 1638,
+      },
+    ],
   },
   {
-    src: "/images/placeholders/gallery-03-square.jpg",
-    alt: "Temporary square-format placeholder photograph",
-    className: "square",
-    width: 1400,
-    height: 1400,
-  },
-  {
-    src: "/images/placeholders/gallery-04-portrait.jpg",
-    alt: "Temporary portrait-format placeholder photograph",
-    className: "portrait",
-    width: 1000,
-    height: 1500,
-  },
-  {
-    src: "/images/placeholders/gallery-05-landscape.jpg",
-    alt: "Temporary landscape-format placeholder photograph",
-    className: "wide",
-    width: 1800,
-    height: 1200,
-  },
-  {
-    src: "/images/placeholders/gallery-06-portrait.jpg",
-    alt: "Temporary portrait-format placeholder photograph",
-    className: "tall",
-    width: 1350,
-    height: 1800,
-  },
-  {
-    src: "/images/placeholders/gallery-07-landscape.jpg",
-    alt: "Temporary landscape-format placeholder photograph",
-    className: "landscape",
-    width: 1200,
-    height: 800,
-  },
-  {
-    src: "/images/placeholders/gallery-08-square.jpg",
-    alt: "Temporary square-format placeholder photograph",
-    className: "square",
-    width: 1600,
-    height: 1600,
-  },
-  {
-    src: "/images/placeholders/gallery-09-portrait.jpg",
-    alt: "Temporary portrait-format placeholder photograph",
-    className: "portrait",
-    width: 1100,
-    height: 1500,
-  },
-  {
-    src: "/images/placeholders/gallery-10-landscape.jpg",
-    alt: "Temporary landscape-format placeholder photograph",
-    className: "wide",
-    width: 1920,
-    height: 1280,
-  },
-  {
-    src: "/images/placeholders/gallery-11-portrait.jpg",
-    alt: "Temporary portrait-format placeholder photograph",
-    className: "tall",
-    width: 1200,
-    height: 1600,
-  },
-  {
-    src: "/images/placeholders/gallery-12-landscape.jpg",
-    alt: "Temporary landscape-format placeholder photograph",
-    className: "landscape",
-    width: 1500,
-    height: 1000,
-  },
-  {
-    src: "/images/placeholders/gallery-13-portrait.jpg",
-    alt: "Temporary portrait-format placeholder photograph",
-    className: "portrait",
-    width: 1000,
-    height: 1250,
-  },
-  {
-    src: "/images/placeholders/gallery-14-landscape.jpg",
-    alt: "Temporary landscape-format placeholder photograph",
-    className: "wide",
-    width: 1800,
-    height: 1100,
-  },
-  {
-    src: "/images/placeholders/gallery-15-square.jpg",
-    alt: "Temporary square-format placeholder photograph",
-    className: "square",
-    width: 1300,
-    height: 1300,
+    titleKey: "commercialTitle",
+    projects: [
+      {
+        titleKey: "vereskTitle",
+        descriptionKey: "vereskDescription",
+        images: [
+          {
+            src: "/images/portfolio/commercial/veresk-clothes/veresk-clothes-01.jpg",
+            alt: "Three models wearing Veresk Clothes robes",
+            className: "wide",
+            width: 4160,
+            height: 2773,
+          },
+          {
+            src: "/images/portfolio/commercial/veresk-clothes/veresk-clothes-02.jpg",
+            alt: "Three seated models wearing Veresk Clothes robes",
+            className: "tall",
+            width: 2773,
+            height: 4160,
+          },
+          {
+            src: "/images/portfolio/commercial/veresk-clothes/veresk-clothes-03.jpg",
+            alt: "Three models in Veresk Clothes robes facing camera",
+            className: "wide",
+            width: 4160,
+            height: 2773,
+          },
+          {
+            src: "/images/portfolio/commercial/veresk-clothes/veresk-clothes-04.jpg",
+            alt: "Three models standing in neutral Veresk Clothes robes",
+            className: "tall",
+            width: 2773,
+            height: 4160,
+          },
+          {
+            src: "/images/portfolio/commercial/veresk-clothes/veresk-clothes-05.jpg",
+            alt: "Red-haired model seated in a light Veresk Clothes robe",
+            className: "portrait",
+            width: 2774,
+            height: 4160,
+          },
+          {
+            src: "/images/portfolio/commercial/veresk-clothes/veresk-clothes-06.jpg",
+            alt: "Red-haired model leaning forward in a light Veresk Clothes robe",
+            className: "portrait",
+            width: 2773,
+            height: 4160,
+          },
+          {
+            src: "/images/portfolio/commercial/veresk-clothes/veresk-clothes-07.jpg",
+            alt: "Three models reading in Veresk Clothes robes",
+            className: "wide",
+            width: 4160,
+            height: 2773,
+          },
+          {
+            src: "/images/portfolio/commercial/veresk-clothes/veresk-clothes-08.jpg",
+            alt: "Three models by studio windows in Veresk Clothes robes",
+            className: "wide",
+            width: 4160,
+            height: 2773,
+          },
+          {
+            src: "/images/portfolio/commercial/veresk-clothes/veresk-clothes-09.jpg",
+            alt: "Three models reading by tall windows in Veresk Clothes robes",
+            className: "tall",
+            width: 2773,
+            height: 4160,
+          },
+          {
+            src: "/images/portfolio/commercial/veresk-clothes/veresk-clothes-10.jpg",
+            alt: "Model applying makeup in a Veresk Clothes robe",
+            className: "portrait",
+            width: 2773,
+            height: 4160,
+          },
+          {
+            src: "/images/portfolio/commercial/veresk-clothes/veresk-clothes-11.jpg",
+            alt: "Two models styling hair in Veresk Clothes robes",
+            className: "portrait",
+            width: 2773,
+            height: 4160,
+          },
+        ],
+      },
+    ],
   },
 ];
+
+const featuredSections = portfolioSections.filter((section) => section.images);
+const projectSections = portfolioSections.filter((section) => section.projects);
+
+const defaultCopy = {
+  portraitTitle: "Портрет",
+  fineArtTitle: "Художня фотографія",
+  commercialTitle: "Комерційна фотографія",
+  vereskTitle: "Veresk Clothes",
+  vereskDescription: "Окремий комерційний проєкт для @veresk.clothes.",
+};
 ---
 
 <!doctype html>
@@ -219,11 +238,13 @@ const placeholderImages = [
           </div>
 
           <div class="image-panel">
-            <img
+            <Image
               src="/images/featured-photo.jpg"
-              alt="Featured image for Elena Muzyka Photography"
+              alt="Elena Muzyka Photography preview"
               width="1080"
               height="1080"
+              loading="eager"
+              decoding="async"
             />
             <p>
               <span data-i18n="photoCaption">
@@ -234,33 +255,82 @@ const placeholderImages = [
         </div>
       </section>
 
-      <section class="portfolio-preview" aria-label="Portfolio preview">
-        <p class="placeholder-note">
-          <span data-i18n="portfolioNote">
-            Тимчасові зображення для перегляду структури сторінки.
-          </span>
-        </p>
-        <div class="portfolio-grid">
+      <section class="portfolio-preview" aria-label="Portfolio">
+          <div class="portfolio-feature-categories">
+            {
+              featuredSections.map((section) => (
+                <section class="portfolio-category">
+                  <header class="portfolio-category-header">
+                    <h2 data-i18n={section.titleKey}>{defaultCopy[section.titleKey]}</h2>
+                  </header>
+
+                  <div class="portfolio-grid compact">
+                    {section.images.map((image) => (
+                      <figure class={image.className}>
+                        <button
+                          type="button"
+                          class="portfolio-trigger"
+                          data-lightbox-src={image.src}
+                          data-lightbox-alt={image.alt}
+                        >
+                          <Image
+                            src={image.src}
+                            alt={image.alt}
+                            width={image.width}
+                            height={image.height}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </button>
+                      </figure>
+                    ))}
+                  </div>
+                </section>
+              ))
+            }
+          </div>
+
           {
-            placeholderImages.map((image) => (
-              <figure class={image.className}>
-                <button
-                  type="button"
-                  class="portfolio-trigger"
-                  data-lightbox-src={image.src}
-                  data-lightbox-alt={image.alt}
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    width={image.width}
-                    height={image.height}
-                  />
-                </button>
-              </figure>
+            projectSections.map((section) => (
+              <section class="portfolio-category">
+                <header class="portfolio-category-header">
+                  <h2 data-i18n={section.titleKey}>{defaultCopy[section.titleKey]}</h2>
+                </header>
+
+                {section.projects?.map((project) => (
+                  <section class="portfolio-project">
+                    <header class="portfolio-project-header">
+                      <h3 data-i18n={project.titleKey}>{defaultCopy[project.titleKey]}</h3>
+                      <p data-i18n={project.descriptionKey}>
+                        {defaultCopy[project.descriptionKey]}
+                      </p>
+                    </header>
+                    <div class="portfolio-grid">
+                      {project.images.map((image) => (
+                        <figure class={image.className}>
+                          <button
+                            type="button"
+                            class="portfolio-trigger"
+                            data-lightbox-src={image.src}
+                            data-lightbox-alt={image.alt}
+                          >
+                            <Image
+                              src={image.src}
+                              alt={image.alt}
+                              width={image.width}
+                              height={image.height}
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </button>
+                        </figure>
+                      ))}
+                    </div>
+                  </section>
+                ))}
+              </section>
             ))
           }
-        </div>
       </section>
     </main>
 
@@ -276,7 +346,11 @@ const placeholderImages = [
             "Нове фотографічне портфоліо від Elena Muzyka. Повна галерея вже незабаром; поки що стежте за новими роботами Elena в Instagram.",
           instagramButton: "Переглянути Instagram",
           photoCaption: "Нові роботи та закулісні моменти з'являються в Instagram.",
-          portfolioNote: "Тимчасові зображення для перегляду структури сторінки.",
+          portraitTitle: "Портрет",
+          fineArtTitle: "Художня фотографія",
+          commercialTitle: "Комерційна фотографія",
+          vereskTitle: "Veresk Clothes",
+          vereskDescription: "Окремий комерційний проєкт для @veresk.clothes.",
         },
         en: {
           eyebrow: "Photography in Poprad, Slovakia",
@@ -284,7 +358,11 @@ const placeholderImages = [
             "A new photography portfolio from Elena Muzyka. The full gallery is coming soon; for now, follow Elena's latest work on Instagram.",
           instagramButton: "View Instagram",
           photoCaption: "New work and behind-the-scenes previews are shared on Instagram.",
-          portfolioNote: "Temporary images to preview the page structure.",
+          portraitTitle: "Portrait",
+          fineArtTitle: "Fine Art",
+          commercialTitle: "Commercial",
+          vereskTitle: "Veresk Clothes",
+          vereskDescription: "A standalone commercial project for @veresk.clothes.",
         },
         sk: {
           eyebrow: "Fotografka v Poprade, Slovensko",
@@ -292,7 +370,11 @@ const placeholderImages = [
             "Nové fotografické portfólio od Elena Muzyka. Kompletnú galériu pripravujeme; zatiaľ sledujte najnovšiu tvorbu Elena na Instagrame.",
           instagramButton: "Zobraziť Instagram",
           photoCaption: "Novú tvorbu a zákulisné momenty nájdete na Instagrame.",
-          portfolioNote: "Dočasné obrázky na náhľad štruktúry stránky.",
+          portraitTitle: "Portrét",
+          fineArtTitle: "Umelecká fotografia",
+          commercialTitle: "Komerčná fotografia",
+          vereskTitle: "Veresk Clothes",
+          vereskDescription: "Samostatný komerčný projekt pre @veresk.clothes.",
         },
       };
 
